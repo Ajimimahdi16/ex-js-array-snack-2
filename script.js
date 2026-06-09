@@ -70,6 +70,23 @@ Salva in una variabile (fullPricedBook) il primo elemento di discountedBooks che
 const availableBooks = books.filter(book => book.available);
   console.log("Libri disponibili:", availableBooks);
 
+  const discountedBooks = availableBooks.map(book =>{
+	const prezzo = parseFloat(book.price.replace("€", ""));
+	const prezzoScontato = (price * 0.8).toFixed(2);
+	return{
+		...book,
+		price:  `${prezzoScontato}`
+
+	}
+
+
+  });
+
+  const = prezzOScontatoLibro = prezzoScontato.find(book => {
+	const prezzo = parseFloat(boook.price.replace("€", ""));
+	return price % 1 === 0 ;
+  })
+
 
 
 
@@ -87,7 +104,7 @@ Ordina l’array authors in base all’età, senza creare un nuovo array.
 const authors = books.map(autori => autori.author)
 console.log("autori disponibili:", authors);
 
-const areAuthorsAdults = authors.some(autori => autori.age >= 18 );
+const areAuthorsAdults = authors.every(autori => autori.age >= 18 );
 console.log("autori maggiorenni:", areAuthorsAdults);
 
 authors.sort((a, b) => {
@@ -117,6 +134,6 @@ Stampa in console l’età media degli autori dei libri.
 const ages = books.map(book => book.author.age )
 console.log("autori con eta  disponibili:", ages);
 
-const agesSum = books.reduce((sum, book) => sum + book.author.age, 0);
+const agesSum = ages.reduce((sum, book) => sum + book.author.age, 0);
 
 console.log("Somma totale delle età media :", agesSum);
